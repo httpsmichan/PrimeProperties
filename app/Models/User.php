@@ -6,6 +6,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\Model;
 
 class User extends Authenticatable
 {
@@ -21,7 +22,7 @@ class User extends Authenticatable
      * @var list<string>
      */
     protected $fillable = [
-        'name', 'email', 'password', 'role'
+        'username', 'name', 'email', 'password', 'role'
     ];
 
     public function isAdmin()
@@ -38,6 +39,17 @@ class User extends Authenticatable
     {
         return $this->role === self::USER;
     }
+
+    public function profile()
+    {
+        return $this->hasOne(Profile::class, 'user_id');
+    }
+
+    public function agent()
+    {
+        return $this->hasOne(Agent::class);
+    }
+
     /**
      * The attributes that should be hidden for serialization.
      *

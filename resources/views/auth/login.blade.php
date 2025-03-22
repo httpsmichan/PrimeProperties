@@ -6,11 +6,19 @@
     <title>Login</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="flex items-center justify-center h-screen bg-green-900">
+<body class="flex items-center justify-center h-screen bg-[url('/images/houseBG.jpg')] bg-cover bg-center">
     <!-- Outer Container (Holds Everything) -->
     <div id="transition-container" 
-         class="bg-white pt-[10px] pr-[10px] pb-[10px] w-full max-w-4xl flex items-center justify-center rounded-br-[3rem] overflow-hidden opacity-0 translate-y-10 transition-all duration-1000 min-h-[500px]">
-            
+    class="bg-white pt-[10px] pr-[10px] pb-[10px] w-full max-w-4xl flex items-center justify-center rounded-br-[3rem] overflow-hidden opacity-0 translate-y-10 transition-all duration-1000 min-h-[500px] shadow-2xl">
+        
+<!-- Back Button Section -->
+<div class="absolute top-5 left-5">
+    <a href="{{ route('welcome') }}" class="w-10 h-10 flex items-center justify-center bg-gray-900/50 text-white rounded-full border border-white/50 hover:bg-gray-900/70 hover:border-white/70 transition">
+        &times; <!-- "X" Icon -->
+    </a>
+</div>
+
+
         <!-- Login Form Section -->
         <div class="w-2/5 bg-white flex flex-col justify-center items-center p-4 relative pt-10">
             <h2 class="text-lg font-semibold text-center w-full">Login</h2>
